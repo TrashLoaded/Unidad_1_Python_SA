@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <style>
+    .correcto {
+      color: green;
+    }
+    .exceso {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+    <h1>Panel de dispositivos</h1>
+    <h2>Consumo máximo permitido: {{ consumo_maximo }} W</h2> 
+    <ul>
+    {% for d in dispositivos %}
+        <li class="{% if d.estado == 'Correcto' %}correcto{% else %}exceso{% endif %}">
+            {{ d.nombre }} - {{ d.consumo }} W - {{ d.estado }}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
